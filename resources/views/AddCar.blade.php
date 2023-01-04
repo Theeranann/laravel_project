@@ -19,56 +19,53 @@
     <div class="container">
         <!-- Content here -->
         <div class="container">
-            <h1 class="text-3xl font-bold underline">
-                เพิ่มรายละเอียดการขายรถ
-            </h1>
+            <h1>เพิ่มรายละเอียดของรถ</h1>
             @csrf
-            <form action="add_sell" method="POST">
+            <form action="add_motorcycle" method="POST" >
                 @csrf
-                
-                <div class="form-group">
-                    <label for="name">นามผู้ซื้อ</label>
-                    <input type="text" class="form-control" name="name" placeholder="นามผู้ซื้อ">
-                </div>
-
-                <div class="form-group">
-                    <label for="tel">เบอร์โทรศัพท์</label>
-                    <input type="text" class="form-control" name="name" placeholder="เบอร์โทรศัพท์">
-                </div>
-
-                <div class="form-group">
-                    <label for="name">ที่อยู่</label>
-                    <input type="text" class="form-control" name="address" placeholder="ที่อยู่">
-                </div>
-
-                <div class="form-group">
-                    <label for="LicensePlate">เลขทะเบียน</label>
-                    <input type="text" class="form-control" name="LicensePlate" value="{{$sell->motorcycle_LicensePlate}}" disabled>
-                </div>
-
                 <div class="form-group">
                     <label for="models">ยี่ห้อ</label>
-                    <input type="text" class="form-control" name="models" value="{{$sell->motorcycle_Models}}" disabled>
+                    <input type="text" class="form-control" name="models" placeholder="ยี่ห้อของรถ">
                 </div>
 
                 <div class="form-group">
                     <label for="Manufacturer">รุ่น</label>
-                    <input type="text" class="form-control" name="Manufacturer" value="{{$sell->motorcycle_Manufacturer}}" disabled>
+                    <input type="text" class="form-control" name="Manufacturer" placeholder="รุ่นของรถ">
                 </div>
 
                 <div class="form-group">
                     <label for="Year">ปี</label>
-                    <input type="text" class="form-control" name="Year" value="{{$sell->motorcycle_Year}}" disabled>
+                    <input type="text" class="form-control" name="Year" placeholder="ปีของรถ">
+                </div>
+
+                <div class="form-group">
+                    <label for="LicensePlate">เลขทะเบียน</label>
+                    <input type="text" class="form-control" name="LicensePlate" placeholder="เลขทะเบียนของรถ">
+                </div>
+
+                <div class="form-group">
+                    <label for="Corlor">สี</label>
+                    <input type="text" class="form-control" name="Corlor" placeholder="สีของรถ">
                 </div>
 
                 <div class="form-group">
                     <label for="mileage">เลขไมล์</label>
-                    <input type="text" class="form-control" name="mileage" value="{{$sell->motorcycle_mileage}}" disabled>
+                    <input type="text" class="form-control" name="mileage" placeholder="เลขไมล์ของรถ">
+                </div>
+
+                <div class="form-group">
+                    <label for="EngineNumber">หมายเลขเครื่อง</label>
+                    <input type="text" class="form-control" name="EngineNumber" placeholder="เลขเครื่องยนต์ของรถ">
+                </div>
+
+                <div class="form-group">
+                    <label for="VinNumber">หมายเลขประจำรถ</label>
+                    <input type="text" class="form-control" name="VinNumber" placeholder="หมายเลขประจำรถจักรยานยนต์">
                 </div>
 
                 <div class="form-group">
                     <label for="Price">ราคา</label>
-                    <input type="text" class="form-control" name="Price" value="{{$sell->motorcycle_Price}}">
+                    <input type="text" class="form-control" name="Price" placeholder="ราคาของรถ">
                 </div>
 
                 <button type="submit" class="btn btn-primary">เพิ่มข้อมูล</button>

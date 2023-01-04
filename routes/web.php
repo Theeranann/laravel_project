@@ -16,11 +16,23 @@ use App\Http\Controllers\SellController;
 |
 */
 
-Route::get('/', function () {
+//navbar Route
+Route::get('/welcome', function () {
     return view('welcome');
+})->name('welcome');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+
+Route::get('/', function () {
+    return view('AllCar');
 });
 
+
 Route::get('/about',[AboutController::class,'index']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -31,8 +43,14 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/admin',[AdminController::class,'index']);
-Route::post('/add_motorcycle',[AdminController::class,'insert_motocycles']);
+// Route::get('/admin',[AdminController::class,'index']);
+Route::get('/AllCar', [AdminController::class, 'index'])->name('AllCar');
+Route::get('/addcar', [AdminController::class, 'addPage'])->name('addcar');
+
+Route::post('/add_motorcycle',[AdminController::class,'insert_motocycles'])->name('add_motorcycle');
+
+Route::get('/Detail/{motorcycle_ID}',[AdminController::class,'detailPage']);
+Route::get('/SoftDeleteCar/{motorcycle_ID}',[AdminController::class,'SoftDeleteCar']);
 
 //Sell
 Route::get('/Sell/{motorcycle_ID}',[SellController::class,'index']);

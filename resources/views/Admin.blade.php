@@ -1,3 +1,5 @@
+@include('partials.navbar')
+
 <!doctype html>
 <html>
 
@@ -19,5 +21,4 @@
     <hr>
     @endforeach
 </body>
-
 </html>

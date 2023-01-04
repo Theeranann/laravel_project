@@ -10,8 +10,24 @@ class AdminController extends Controller
     //
     function index(){
         $motorcycle = motorcycle::all();
-        return view('admin',compact('motorcycle'));
+        return view('AllCar',compact('motorcycle'));
     }
+    function addPage(){
+        return view('AddCar');
+    }
+    public function detailPage($motorcycle_ID)
+    {    
+        $detail = motorcycle::find($motorcycle_ID);
+        return view('CarDetail',compact('detail'));
+    }
+
+    public function SoftDeleteCar($motorcycle_ID)
+    {
+        motorcycle::find($motorcycle_ID)->delete();
+        $motorcycle = motorcycle::all();
+        return view('AllCar',compact('motorcycle'));
+    }
+
     public function insert_motocycles(Request $request)
     {
         # code...
@@ -29,6 +45,6 @@ class AdminController extends Controller
         $new_motorcycle->save();
 
         $motorcycle = motorcycle::all();
-        return view('admin',compact('motorcycle'));
+        return view('AllCar',compact('motorcycle'));
     }
 }
