@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SellController;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,19 +17,13 @@ use App\Http\Controllers\SellController;
 */
 
 //navbar Route
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
-
-
-Route::get('/', function () {
-    return view('AllCar');
-});
-
 
 Route::get('/about',[AboutController::class,'index']);
 
@@ -39,8 +33,8 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+        return view('home');
+    })->name('home');
 });
 
 // Route::get('/admin',[AdminController::class,'index']);
@@ -54,3 +48,11 @@ Route::get('/SoftDeleteCar/{motorcycle_ID}',[AdminController::class,'SoftDeleteC
 
 //Sell
 Route::get('/Sell/{motorcycle_ID}',[SellController::class,'index']);
+
+//buy
+Route::get('/buycar',[AdminController::class,'buyCarPage'])->name('buycar');
+//reserve
+Route::get('/reserveCar',[AdminController::class,'reserveCarPage'])->name('reserveCar');
+
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
