@@ -33,6 +33,7 @@
                             <div class="form-group col-md-4">
                                 <label for="model">Model:</label>
                                 <select name="models" id="model" class="form-control bg-white">
+                                <option value="">Select Model</option>
                                 </select>
                             </div>
 
@@ -61,8 +62,9 @@
                                 <input type="text" class="form-control bg-white" name="Corlor" placeholder="สีของรถ">
                             </div> -->
                             <div class="form-group col-md-4">
-                                <label for="color">color:</label>
+                                <label for="color">Color:</label>
                                 <select name="color" id="color" class="form-control bg-white">
+                                <option value="">Select Color</option>
                                 </select>
                             </div>
 

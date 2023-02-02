@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('motorcycles', function (Blueprint $table) {
-            $table->bigInteger('motorcycle_ID');
+            $table->increments('motorcycle_ID');
             $table->unsignedBigInteger("motorcycle_Models");
             $table->unsignedBigInteger("motorcycle_Manufacturer");
             $table->unsignedBigInteger("motorcycle_Corlor");
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string("motorcycle_mileage");
             $table->string("motorcycle_EngineNumber");
             $table->string("motorcycle_VinNumber");
-            $table->string("motorcycle_Img");
+            $table->string("motorcycle_Img")->nullable();
             $table->string("motorcycle_Price");
             $table->string("SoldOut");
             $table->timestamps();

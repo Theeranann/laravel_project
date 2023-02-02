@@ -19,29 +19,47 @@
                         <h1 class="text-3xl font-bold underline">
                             เพิ่มรายละเอียดการขายรถ
                         </h1>
+
                         @csrf
-                        <form class="row g-3" action="add_sell" method="POST">
+                        <form class="row g-3" action="{{ route('add_sell') }}" method="POST">
                             @csrf
 
-                            <div class="form-group">
-                                <label for="name">นามผู้ซื้อ</label>
-                                <input type="text" class="form-control" name="name" placeholder="นามผู้ซื้อ">
+                            <div class="form-group col-md-4">
+                                <label for="name">ชื่อ</label>
+                                <input type="text" class="form-control bg-white" name="firstName" placeholder="ชื่อ">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-4">
+                                <label for="name">นามสกุล</label>
+                                <input type="text" class="form-control bg-white" name="lastName" placeholder="นามสกุล">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="name">เพศ</label>
+                                <input type="text" class="form-control bg-white" name="Gender" placeholder="เพศ">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="name">วันเกิด</label>
+                                <input type="text" class="form-control bg-white" name="BirthDate" placeholder="วันเกิด">
+                            </div>
+
+                            <div class="form-group col-md-6">
                                 <label for="tel">เบอร์โทรศัพท์</label>
-                                <input type="text" class="form-control" name="name" placeholder="เบอร์โทรศัพท์">
+                                <input type="text" class="form-control bg-white" name="phoneNumber" placeholder="เบอร์โทรศัพท์">
                             </div>
 
                             <div class="form-group">
                                 <label for="name">ที่อยู่</label>
-                                <input type="text" class="form-control" name="address" placeholder="ที่อยู่">
+                                <input type="text" class="form-control bg-white" name="Address" placeholder="ที่อยู่">
                             </div>
 
                             <div class="col-12">
                                 <hr>
                             </div>
 
+                            <input type="hidden" class="form-control" name="motorcycle_ID" value="{{$sell->motorcycle_ID }}" >
+                            
                             <div class="form-group col-md-4">
                                 <label for="models">ยี่ห้อ</label>
                                 <input type="text" class="form-control" name="models" value="{{$sell->motorcycle_Models}}" disabled>
@@ -73,8 +91,10 @@
 
                             <div class="form-group">
                                 <label for="Price">ราคา</label>
-                                <input type="text" class="form-control" name="Price" value="{{$sell->motorcycle_Price}}">
+                                <input type="hidden" class="form-control disabled" name="Price" value="{{$sell->motorcycle_Price}}" >
+                                <input type="text" class="form-control disabled" name="" value="{{$sell->motorcycle_Price}}" disabled>
                             </div>
+
 
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">เพิ่มข้อมูลการขาย</button>

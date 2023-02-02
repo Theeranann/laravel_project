@@ -14,17 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->bigInteger("OrderType_ID");
             $table->bigInteger("Employee_ID");
             $table->bigInteger("Customer_ID");
             $table->bigInteger("Motorcycle_ID");
             $table->Integer("Order_Price");
             $table->string("Buys_Order_Status");
-            $table->string("payment_type");
-            $table->string("Reserve_EndDate");
-            $table->string("CancelDetail");
+            $table->string("payment_type")->nullable();
+            $table->string("Reserve_EndDate")->nullable();
+            $table->string("CancelDetail")->nullable();
             $table->timestamps();
+            $table->SoftDeletes();
         });
     }
 

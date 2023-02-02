@@ -41,13 +41,19 @@ Route::middleware([
 Route::get('/AllCar', [AdminController::class, 'index'])->name('AllCar');
 Route::get('/addcar', [AdminController::class, 'addPage'])->name('addcar');
 
+//Insert
 Route::post('/add_motorcycle',[AdminController::class,'insert_motocycles'])->name('add_motorcycle');
+
+
 
 Route::get('/Detail/{motorcycle_ID}',[AdminController::class,'detailPage']);
 Route::get('/SoftDeleteCar/{motorcycle_ID}',[AdminController::class,'SoftDeleteCar']);
 
 //Sell
 Route::get('/Sell/{motorcycle_ID}',[SellController::class,'index']);
+Route::get('/sellcar',[SellController::class,'sellcarDetail'])->name('sellcar');
+//Insert Sell
+Route::post('/add_sell',[AdminController::class,'insert_sell'])->name('add_sell');
 
 //buy
 Route::get('/buycar',[AdminController::class,'buyCarPage'])->name('buycar');
@@ -55,7 +61,7 @@ Route::get('/buycar',[AdminController::class,'buyCarPage'])->name('buycar');
 Route::get('/reserveCar',[AdminController::class,'reserveCarPage'])->name('reserveCar');
 
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/getBrand/{id}', [AdminController::class,'getBrand'])->name('getBrand');
 Route::get('/getColor/{id}', [AdminController::class,'getColor'])->name('getColor');
