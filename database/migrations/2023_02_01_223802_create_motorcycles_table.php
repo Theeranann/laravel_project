@@ -14,13 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('motorcycles', function (Blueprint $table) {
-            // $table->id();
-            $table->bigInteger("motorcycle_ID")->startingValue(1);
-            $table->string("motorcycle_Models");
-            $table->string("motorcycle_Manufacturer");
+            $table->bigInteger('motorcycle_ID');
+            $table->unsignedBigInteger("motorcycle_Models");
+            $table->unsignedBigInteger("motorcycle_Manufacturer");
+            $table->unsignedBigInteger("motorcycle_Corlor");
+
             $table->string("motorcycle_Year");
             $table->string("motorcycle_LicensePlate");
-            $table->string("motorcycle_Corlor");
+
             $table->string("motorcycle_mileage");
             $table->string("motorcycle_EngineNumber");
             $table->string("motorcycle_VinNumber");
@@ -29,6 +30,10 @@ return new class extends Migration
             $table->string("SoldOut");
             $table->timestamps();
             $table->SoftDeletes();
+            
+            $table->foreign('motorcycle_Manufacturer')->references('id')->on('motorcycle_brands');
+            $table->foreign('motorcycle_Models')->references('id')->on('motorcycle_models');
+            $table->foreign('motorcycle_Corlor')->references('id')->on('motorcycles_colors');
         });
     }
 

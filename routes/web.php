@@ -56,3 +56,6 @@ Route::get('/reserveCar',[AdminController::class,'reserveCarPage'])->name('reser
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/getBrand/{id}', [AdminController::class,'getBrand'])->name('getBrand');
+Route::get('/getColor/{id}', [AdminController::class,'getColor'])->name('getColor');

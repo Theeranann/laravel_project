@@ -28,14 +28,14 @@
 
                     <!-- //select box for filter -->
                     <div class="row">
-                        <div class="container py-4 col-3" >
+                        <div class="container py-4 col-3">
                             <select class="form-select bg-white" aria-label="Default select example">
                                 <option selected>ยี่ห้อของรถ</option>
                                 <option value="1">Honda</option>
                                 <option value="2">Yamaha</option>
                             </select>
                         </div>
-                        <div class="container py-4 col-3" >
+                        <div class="container py-4 col-3">
                             <select class="form-select bg-white" aria-label="Default select example">
                                 <option selected>รุ่นของรถ</option>
                                 <option value="1">Click</option>
@@ -44,7 +44,7 @@
                                 <option value="3">Finn</option>
                             </select>
                         </div>
-                        <div class="container py-4 col-3" >
+                        <div class="container py-4 col-3">
                             <select class="form-select bg-white" aria-label="Default select example">
                                 <option selected>ปีของรถ</option>
                                 <option value="1">2022</option>
@@ -52,7 +52,7 @@
                                 <option value="3">2012</option>
                             </select>
                         </div>
-                        <div class="container py-4 col-3" >
+                        <div class="container py-4 col-3">
                             <select class="form-select bg-white" aria-label="Default select example">
                                 <option selected>ราคาของรถ</option>
                                 <option value="1">ต่ำสุดก่อน</option>
@@ -65,16 +65,11 @@
                             <div class="card" style="width: 16rem;">
                                 <img class="card-img-top" src="https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.jpg" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $row->motorcycle_Year }} {{ $row->motorcycle_Models }} {{ $row->motorcycle_Manufacturer }}</h5>
+                                    <h5 class="card-title">{{ $row->motorcycle_Year }} {{ $row->brands_name }} {{ $row->models_name }}</h5>
                                     <p class="card-text">ราคา: {{ $row->motorcycle_Price }} บาท</p>
                                     <a href="/Detail/{{$row->motorcycle_ID}}" class="btn btn-primary">ดูรายละเอียด</a>
                                     <a href="/Sell/{{$row->motorcycle_ID}}" class="btn btn-success">ขายรถ</a>
                                     <a href="/SoftDeleteCar/{{$row->motorcycle_ID}}" class="btn btn-danger">ลบ</a>
-                                    <!-- Button trigger modal -->
-                                    <!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        ลบ
-                                    </button> -->
-                                    <!-- <button class="btn btn-danger delete-button" data-id="{{$row->motorcycle_ID}}">ลบ</button> -->
 
                                 </div>
                             </div>

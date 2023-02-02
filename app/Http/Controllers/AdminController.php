@@ -4,17 +4,44 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\motorcycle;
+use App\Models\motorcycle_brand;
+use App\Models\motorcycle_model;
+use App\Models\motorcycles_color;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     //
     function index(){
-        $motorcycle = motorcycle::all();
+        // $motorcycle = motorcycle::all();
+        $motorcycle = DB::table('motorcycles')
+        ->join('motorcycle_brands','motorcycle_Manufacturer','=','motorcycle_brands.id')
+        ->join('motorcycle_models','motorcycle_Models','=','motorcycle_models.id')
+        ->select('motorcycles.*','motorcycle_brands.brands_name','motorcycle_models.models_name')
+        ->get();
+        // $brand = motorcycle_brand::all();
+        // $models = motorcycle_model::all();
         return view('AllCar',compact('motorcycle'));
+        // return view('AllCar',compact('motorcycle','brand','models'));
     }
     function addPage(){
-        return view('AddCar');
+        $brands = motorcycle_brand::all();
+        return view('AddCar', compact('brands'));
+        // return view('AddCar');
     }
+
+    //select box brand
+    public function getBrand($id){
+        $dataModels = motorcycle_model::where('brands_id',$id)->get();
+        return response()->json($dataModels);
+    }
+    //select box getColor
+    public function getColor($id){
+        $dataColor = motorcycles_color::where('models_id',$id)->get();
+        return response()->json($dataColor);
+    }
+    
+
     function buyCarPage(){
         return view('buycar');
     }
@@ -34,6 +61,15 @@ class AdminController extends Controller
         $motorcycle = motorcycle::all();
         return redirect()->back()->with('success', 'deleted successfully!');
     }
+
+
+
+    // public function select_brands()
+    // {
+    //     $brands = motorcycle_brand::table('motorcycle_brands')->get();
+    //     return view('AddCar', compact('brands'));
+    // }
+
 
     public function insert_motocycles(Request $request)
     {
