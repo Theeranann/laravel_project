@@ -37,31 +37,28 @@ Route::middleware([
     })->name('home');
 });
 
-// Route::get('/admin',[AdminController::class,'index']);
-Route::get('/AllCar', [AdminController::class, 'index'])->name('AllCar');
-Route::get('/addcar', [AdminController::class, 'addPage'])->name('addcar');
-
-//Insert
-Route::post('/add_motorcycle',[AdminController::class,'insert_motocycles'])->name('add_motorcycle');
-
-
-
-Route::get('/Detail/{motorcycle_ID}',[AdminController::class,'detailPage']);
+//main-page
+Route::get('/motorcycle-overview', [AdminController::class, 'index'])->name('motorcycle-overview');
+Route::get('/motorcycle-detail-page/{motorcycle_ID}',[AdminController::class,'detailPage']);
 Route::get('/SoftDeleteCar/{motorcycle_ID}',[AdminController::class,'SoftDeleteCar']);
 
+//insert-car
+Route::get('/motorcycle-add-page', [AdminController::class, 'addPage'])->name('motorcycle-add-page');
+Route::post('/motorcycle-insert',[AdminController::class,'insert_motocycles'])->name('motorcycle-insert');
+
 //Sell
-Route::get('/Sell/{motorcycle_ID}',[SellController::class,'index']);
-Route::get('/sellcar',[SellController::class,'sellcarDetail'])->name('sellcar');
-//Insert Sell
-Route::post('/add_sell',[AdminController::class,'insert_sell'])->name('add_sell');
+Route::get('/motorcycle-sell-list',[SellController::class,'sellcarDetail'])->name('motorcycle-sell-list');
+Route::get('/motorcycle-sell-page/{motorcycle_ID}',[SellController::class,'index']);
 
 //buy
-Route::get('/buycar',[AdminController::class,'buyCarPage'])->name('buycar');
+Route::get('/motorcycle-buy-list',[AdminController::class,'buyCarPage'])->name('motorcycle-buy-list');
+
 //reserve
-Route::get('/reserveCar',[AdminController::class,'reserveCarPage'])->name('reserveCar');
+Route::get('/motorcycle-reserve-list',[AdminController::class,'reserveCarPage'])->name('motorcycle-reserve-list');
 
+//Insert Sell
+Route::post('/insert-sell',[AdminController::class,'insert_sell'])->name('insert-sell');
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/getBrand/{id}', [AdminController::class,'getBrand'])->name('getBrand');
 Route::get('/getColor/{id}', [AdminController::class,'getColor'])->name('getColor');

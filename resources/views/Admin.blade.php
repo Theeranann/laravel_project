@@ -1,5 +1,3 @@
-@include('partials.navbar')
-
 <!doctype html>
 <html>
 

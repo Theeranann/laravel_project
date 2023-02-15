@@ -15,38 +15,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $("#datepicker").datepicker();
-        });
-    </script>
-
-    <title>ต.ยานยนต์</title>
+    <title>Hello, world!</title>
 </head>
 
 <body>
-    @include('partials.menu')
-    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
-        <header class="header header-sticky mb-4">
-
-        </header>
-        <div class="body flex-grow-1 px-3">
-            <div class="container-lg">
-
-                @yield('content')
-
-            </div>
-        </div>
-        <footer class="footer">
-            <div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io">Bootstrap Admin Template</a> © 2022 creativeLabs.</div>
-            <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI UI Components</a></div>
-        </footer>
-    </div>
-
+    @yield('content')
 
     <!-- Optional JavaScript; choose one of the two! -->
 

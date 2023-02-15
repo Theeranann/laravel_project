@@ -89,7 +89,7 @@ class AdminController extends Controller
         $new_motorcycle->save();
 
         $motorcycle = motorcycle::all();
-        return redirect('/AllCar');
+        return redirect('/motorcycle-overview');
     }
 
     public function insert_sell(Request $request)
@@ -120,7 +120,7 @@ class AdminController extends Controller
 
 
     
-        return redirect('/sellcar');
+        return redirect('/motorcycle-sell-list');
 
         // $table->string("customers_firstName");
         // $table->string("customers_lastName");

@@ -4,7 +4,6 @@
 <div class="container-fluid">
     <div class="container">
         <div class="row">
-            @include('partials.sidebar')
             <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
