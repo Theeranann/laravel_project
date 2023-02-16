@@ -50,36 +50,37 @@
                         </li>
 
                         <li class="nav-title">Data Management</li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('management-add-page') }}">
+                        <!-- <li class="nav-item"><a class="nav-link" href="{{ route('management-add-page') }}">
                                 <div class="px-3">จัดการข้อมูลรถ</div>
                             </a>
+                        </li> -->
+
+                        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+                                <div class="px-3">จัดการข้อมูลรถ</div>
+                            </a>
+                            <ul class="nav-group-items">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('management-add-page') }}">
+                                        <span class="nav-icon"></span> ข้อมูลยี่ห้อ</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('management-add-model') }}">
+                                        <span class="nav-icon"></span> ข้อมูลรุ่น
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('management-add-color') }}">
+                                        <span class="nav-icon"></span> ข้อมูลสีรถ</a>
+                                </li>
+                            </ul>
                         </li>
+
                         <li class="nav-item"><a class="nav-link" href="#">
                                 <div class="px-3">จัดการข้อมูลอะไหล่</div>
                             </a>
                         </li>
-                        <!-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
-                                <svg class="nav-icon">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
-                                </svg> Base</a>
-                            <ul class="nav-group-items">
-                                <li class="nav-item"><a class="nav-link" href="base/accordion.html"><span class="nav-icon"></span> Accordion</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span class="nav-icon"></span> Breadcrumb</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/cards.html"><span class="nav-icon"></span> Cards</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/carousel.html"><span class="nav-icon"></span> Carousel</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/collapse.html"><span class="nav-icon"></span> Collapse</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/list-group.html"><span class="nav-icon"></span> List group</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/navs-tabs.html"><span class="nav-icon"></span> Navs &amp; Tabs</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/pagination.html"><span class="nav-icon"></span> Pagination</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/placeholders.html"><span class="nav-icon"></span> Placeholders</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/popovers.html"><span class="nav-icon"></span> Popovers</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/progress.html"><span class="nav-icon"></span> Progress</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/scrollspy.html"><span class="nav-icon"></span> Scrollspy</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/spinners.html"><span class="nav-icon"></span> Spinners</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/tables.html"><span class="nav-icon"></span> Tables</a></li>
-                                <li class="nav-item"><a class="nav-link" href="base/tooltips.html"><span class="nav-icon"></span> Tooltips</a></li>
-                            </ul>
-                        </li> -->
 
                         <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

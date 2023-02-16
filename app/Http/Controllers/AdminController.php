@@ -70,6 +70,12 @@ class AdminController extends Controller
         $motorcycle = motorcycle::all();
         return redirect()->back()->with('success', 'deleted successfully!');
     }
+    public function SoftDelete_brand($id)
+    {
+        motorcycle_brand::find($id)->delete();
+        return redirect()->back()->with('success', 'deleted successfully!');
+        // return redirect('/management-add-page')->with('success', 'deleted successfully!');
+    }
 
     //part
     public function showPartPage()
@@ -84,7 +90,23 @@ class AdminController extends Controller
 
     public function managementPage()
     {
-        return view('management-Page');
+        $motorcycle_brand = motorcycle_brand::all();
+        $motorcycle_model = motorcycle_model::all();
+        return view('management-Page',compact('motorcycle_brand','motorcycle_model'));
+    }
+
+    public function managementModelPage()
+    {
+        $motorcycle_brand = motorcycle_brand::all();
+        $motorcycle_model = motorcycle_model::all();
+        return view('management-Model',compact('motorcycle_brand','motorcycle_model'));
+    }
+    public function managementColorPage()
+    {
+        $motorcycle_brand = motorcycle_brand::all();
+        $motorcycle_model = motorcycle_model::all();
+        $motorcycle_color = motorcycles_color::all();
+        return view('management-Color',compact('motorcycle_brand','motorcycle_model','motorcycle_color'));
     }
 
 
@@ -164,5 +186,33 @@ class AdminController extends Controller
 
         $showparts = parts::all();
         return redirect('/motorcycle-part-list');
+    }
+
+    public function insert_brand(Request $request)
+    {
+        $new_brand = new motorcycle_brand();
+        $new_brand->brands_name = $request->name;
+        $new_brand->save();
+
+        return redirect('/management-add-page');
+    }
+    public function insert_model(Request $request)
+    {
+        $new_model = new motorcycle_model();
+        $new_model->brands_id = $request->Manufacturer;
+        $new_model->models_name = $request->name;
+        $new_model->save();
+
+        return redirect('/management-add-model');
+    }
+    public function insert_color(Request $request)
+    {
+        $new_color = new motorcycles_color();
+        $new_color->brands_id = $request->Manufacturer;
+        $new_color->models_id = $request->models;
+        $new_color->color_name = $request->name;
+        $new_color->save();
+
+        return redirect('/management-add-color');
     }
 }

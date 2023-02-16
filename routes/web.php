@@ -63,8 +63,18 @@ Route::get('/motorcycle-part-list', [AdminController::class, 'showPartPage'])->n
 Route::get('/part-add-page', [AdminController::class, 'addpartPage'])->name('part-add-page');
 Route::post('/part-insert',[AdminController::class,'insert_parts'])->name('part-insert');
 
+
 //DATA-MANAGEMENT-motorcycle
 Route::get('/management-add-page', [AdminController::class, 'managementPage'])->name('management-add-page');
+Route::get('/management-add-model', [AdminController::class, 'managementModelPage'])->name('management-add-model');
+Route::get('/management-add-color', [AdminController::class, 'managementColorPage'])->name('management-add-color');
+//MANAGEMENT-Brands
+Route::post('/motorcycle-brand-insert',[AdminController::class,'insert_brand'])->name('motorcycle-brand-insert');
+Route::get('/SoftDelete-brand/{id}',[AdminController::class,'SoftDelete_brand'])->name('SoftDelete-brand');
+//MANAGEMENT-Models
+Route::post('/motorcycle-model-insert',[AdminController::class,'insert_model'])->name('motorcycle-model-insert');
+//MANAGEMENT-Color
+Route::post('/motorcycle-color-insert',[AdminController::class,'insert_color'])->name('motorcycle-color-insert');
 
 Route::get('/getBrand/{id}', [AdminController::class,'getBrand'])->name('getBrand');
 Route::get('/getColor/{id}', [AdminController::class,'getColor'])->name('getColor');
