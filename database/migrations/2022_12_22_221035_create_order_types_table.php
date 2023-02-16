@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("Order_TypeName");
             $table->timestamps();
+            $table->SoftDeletes();
         });
     }
 

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->Integer("RepairJob_TotalPrice");
            
             $table->timestamps();
+            $table->SoftDeletes();
         });
     }
 

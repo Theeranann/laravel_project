@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("customers_Address");
             // $table->string("customers_mail");
             $table->timestamps();
+            $table->SoftDeletes();
         });
     }
 

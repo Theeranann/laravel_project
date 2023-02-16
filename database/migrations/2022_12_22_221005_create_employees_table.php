@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string("employees_mail");
             $table->Integer("employees_salary");
             $table->timestamps();
+            $table->SoftDeletes();
         });
     }
 

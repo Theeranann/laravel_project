@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("employees_RoleName");
             $table->timestamps();
+            $table->SoftDeletes();
         });
     }
 

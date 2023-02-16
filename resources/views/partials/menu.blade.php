@@ -44,13 +44,13 @@
                             </a>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link" href="#">
+                        <li class="nav-item"><a class="nav-link" href="{{ route('motorcycle-part-list') }}">
                                 <div class="px-3">อะไหล่</div>
                             </a>
                         </li>
 
                         <li class="nav-title">Data Management</li>
-                        <li class="nav-item"><a class="nav-link" href="#">
+                        <li class="nav-item"><a class="nav-link" href="{{ route('management-add-page') }}">
                                 <div class="px-3">จัดการข้อมูลรถ</div>
                             </a>
                         </li>

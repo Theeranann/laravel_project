@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('brands_id')->references('id')->on('motorcycle_brands');
             $table->foreign('models_id')->references('id')->on('motorcycle_models');
+            $table->SoftDeletes();
         });
     }
 

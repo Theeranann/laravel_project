@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger("Parts_ID");
             $table->bigInteger("RepairJob_ID");
             $table->timestamps();
+            $table->SoftDeletes();
         });
     }
 

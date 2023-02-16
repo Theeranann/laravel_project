@@ -9,52 +9,59 @@ use App\Models\motorcycle_brand;
 use App\Models\motorcycle_model;
 use App\Models\motorcycles_color;
 use App\Models\order;
+use App\Models\parts;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     //
-    function index(){
+    function index()
+    {
         // $motorcycle = motorcycle::all();
         $motorcycle = DB::table('motorcycles')
-        ->join('motorcycle_brands','motorcycle_Manufacturer','=','motorcycle_brands.id')
-        ->join('motorcycle_models','motorcycle_Models','=','motorcycle_models.id')
-        ->select('motorcycles.*','motorcycle_brands.brands_name','motorcycle_models.models_name')
-        ->get();
+            ->join('motorcycle_brands', 'motorcycle_Manufacturer', '=', 'motorcycle_brands.id')
+            ->join('motorcycle_models', 'motorcycle_Models', '=', 'motorcycle_models.id')
+            ->select('motorcycles.*', 'motorcycle_brands.brands_name', 'motorcycle_models.models_name')
+            ->get();
         // $brand = motorcycle_brand::all();
         // $models = motorcycle_model::all();
-        return view('AllCar',compact('motorcycle'));
+        return view('AllCar', compact('motorcycle'));
         // return view('AllCar',compact('motorcycle','brand','models'));
     }
-    function addPage(){
+    function addPage()
+    {
         $brands = motorcycle_brand::all();
         return view('AddCar', compact('brands'));
         // return view('AddCar');
     }
 
     //select box brand
-    public function getBrand($id){
-        $dataModels = motorcycle_model::where('brands_id',$id)->get();
+    public function getBrand($id)
+    {
+        $dataModels = motorcycle_model::where('brands_id', $id)->get();
         return response()->json($dataModels);
     }
     //select box getColor
-    public function getColor($id){
-        $dataColor = motorcycles_color::where('models_id',$id)->get();
+    public function getColor($id)
+    {
+        $dataColor = motorcycles_color::where('models_id', $id)->get();
         return response()->json($dataColor);
     }
-    
 
-    function buyCarPage(){
+
+    function buyCarPage()
+    {
         return view('buycar');
     }
-    function reserveCarPage(){
+    function reserveCarPage()
+    {
         return view('reserveCar');
     }
 
     public function detailPage($motorcycle_ID)
-    {    
+    {
         $detail = motorcycle::find($motorcycle_ID);
-        return view('CarDetail',compact('detail'));
+        return view('CarDetail', compact('detail'));
     }
 
     public function SoftDeleteCar($motorcycle_ID)
@@ -64,6 +71,21 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'deleted successfully!');
     }
 
+    //part
+    public function showPartPage()
+    {
+        $showparts = parts::all();
+        return view('Allpart', compact('showparts'));
+    }
+    public function addpartPage()
+    {
+        return view('AddPart');
+    }
+
+    public function managementPage()
+    {
+        return view('management-Page');
+    }
 
 
     // public function select_brands()
@@ -119,7 +141,7 @@ class AdminController extends Controller
         $new_sell->save();
 
 
-    
+
         return redirect('/motorcycle-sell-list');
 
         // $table->string("customers_firstName");
@@ -128,8 +150,19 @@ class AdminController extends Controller
         // $table->string("customers_BirthDate");
         // $table->string("customers_phoneNumber");
         // $table->string("customers_Address");
+    }
 
-        
+    public function insert_parts(Request $request)
+    {
+        $new_part = new parts;
+        $new_part->Parts_Name = $request->Name;
+        $new_part->Parts_UnitPrice = $request->Price;
+        $new_part->Parts_InStock = $request->Unit;
+        $new_part->Parts_img = $request->Descript;
+        $new_part->Parts_Description = $request->img;
+        $new_part->save();
 
+        $showparts = parts::all();
+        return redirect('/motorcycle-part-list');
     }
 }

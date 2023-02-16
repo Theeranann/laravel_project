@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("models_name");
             $table->timestamps();
             $table->foreign('brands_id')->references('id')->on('motorcycle_brands');
+            $table->SoftDeletes();
         });
     }
 

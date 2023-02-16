@@ -49,6 +49,8 @@ Route::post('/motorcycle-insert',[AdminController::class,'insert_motocycles'])->
 //Sell
 Route::get('/motorcycle-sell-list',[SellController::class,'sellcarDetail'])->name('motorcycle-sell-list');
 Route::get('/motorcycle-sell-page/{motorcycle_ID}',[SellController::class,'index']);
+//Insert Sell
+Route::post('/insert-sell',[AdminController::class,'insert_sell'])->name('insert-sell');
 
 //buy
 Route::get('/motorcycle-buy-list',[AdminController::class,'buyCarPage'])->name('motorcycle-buy-list');
@@ -56,9 +58,13 @@ Route::get('/motorcycle-buy-list',[AdminController::class,'buyCarPage'])->name('
 //reserve
 Route::get('/motorcycle-reserve-list',[AdminController::class,'reserveCarPage'])->name('motorcycle-reserve-list');
 
-//Insert Sell
-Route::post('/insert-sell',[AdminController::class,'insert_sell'])->name('insert-sell');
+//insert-part
+Route::get('/motorcycle-part-list', [AdminController::class, 'showPartPage'])->name('motorcycle-part-list');
+Route::get('/part-add-page', [AdminController::class, 'addpartPage'])->name('part-add-page');
+Route::post('/part-insert',[AdminController::class,'insert_parts'])->name('part-insert');
 
+//DATA-MANAGEMENT-motorcycle
+Route::get('/management-add-page', [AdminController::class, 'managementPage'])->name('management-add-page');
 
 Route::get('/getBrand/{id}', [AdminController::class,'getBrand'])->name('getBrand');
 Route::get('/getColor/{id}', [AdminController::class,'getColor'])->name('getColor');

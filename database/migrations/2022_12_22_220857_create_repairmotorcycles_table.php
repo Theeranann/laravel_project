@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("RepairMotorcycle_Manufacturer");
             $table->string("RepairMotorcycle_Year");
             $table->timestamps();
+            $table->SoftDeletes();
         });
     }
 
