@@ -77,9 +77,13 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="body flex-grow-1 px-3 py-4">
+            <div class="container-lg">
+
+                @yield('content')
+
+            </div>
+        </div>
 
     </div>
 

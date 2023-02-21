@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SellController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\IsAdmin;
 
@@ -23,9 +24,16 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+// Route::get('/main-page', function () {
+//     return view('user.main-page');
+// })->name('main-page');
+
+Route::get('/main-page', [UserController::class, 'index'])->name('main-page');
+Route::get('/motorcycle-detail/{motorcycle_ID}', [UserController::class, 'MotorcycleDetailPage']);
+Route::get('/motorcycle-reserve/{motorcycle_ID}', [UserController::class, 'MotorcycleReservePage']);
+Route::get('/motorcycle-reserve-payment/{motorcycle_ID}', [UserController::class, 'ReservePaymentPage']);
+Route::post('/insert-payment', [UserController::class, 'insert_payment'])->name('insert-payment');
+
 
 Route::get('/about', [AboutController::class, 'index'])->name('home');
 
