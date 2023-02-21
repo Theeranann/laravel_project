@@ -99,10 +99,10 @@
                 <td>{{ $brand->brands_name }}</td>
                 <td>
                     <a href="#" class="btn btn-success">แก้ไข</a>
-                    <!-- <a href="/SoftDelete-brand/{{ $brand->id }}" class="btn btn-danger">ลบ</a> -->
-                    <button type="button" class="btn btn-danger" data-coreui-toggle="modal" data-coreui-target="#modal_delete_brand">
-                        ลบmodel
-                    </button>
+                    <a href="/SoftDelete-brand/{{ $brand->id }}" class="btn btn-danger">ลบ</a>
+                    <!-- <button type="button" class="btn btn-danger" data-coreui-toggle="modal" data-coreui-target="#modal_delete_brand">
+                        ลบ
+                    </button> -->
                 </td>
 
             </tr>

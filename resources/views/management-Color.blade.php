@@ -85,8 +85,8 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Brands</th>
-                <th scope="col">Models</th>
+                <!-- <th scope="col">Brands</th> -->
+                <!-- <th scope="col">Models</th> -->
                 <th scope="col">Color</th>
                 <th scope="col">Action</th>
             </tr>
@@ -109,15 +109,15 @@
             @foreach($motorcycle_color as $color)
             <tr>
                 <th scope="row">{{ $color->id }}</th>
-                <td>{{ $color->brands_id }}</td>
-                <td>{{ $color->models_id  }}</td>
+                <!-- <td>{{ $color->brands_id }}</td> -->
+                <!-- <td>{{ $color->models_id  }}</td> -->
                 <td>{{ $color->color_name }}</td>
                 <td>
                     <a href="#" class="btn btn-success">แก้ไข</a>
-                    <!-- <a href="/SoftDelete-brand/{{ $color->id }}" class="btn btn-danger">ลบ</a> -->
-                    <button type="button" class="btn btn-danger" data-coreui-toggle="modal" data-coreui-target="#modal_delete_brand">
+                    <a href="/SoftDelete-color/{{ $color->id }}" class="btn btn-danger">ลบ</a>
+                    <!-- <button type="button" class="btn btn-danger" data-coreui-toggle="modal" data-coreui-target="#modal_delete_brand">
                         ลบ
-                    </button>
+                    </button> -->
                 </td>
 
             </tr>

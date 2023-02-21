@@ -17,15 +17,24 @@ class AdminController extends Controller
     //
     function index()
     {
-        // $motorcycle = motorcycle::all();
         $motorcycle = DB::table('motorcycles')
             ->join('motorcycle_brands', 'motorcycle_Manufacturer', '=', 'motorcycle_brands.id')
             ->join('motorcycle_models', 'motorcycle_Models', '=', 'motorcycle_models.id')
             ->select('motorcycles.*', 'motorcycle_brands.brands_name', 'motorcycle_models.models_name')
+            ->whereNull('motorcycles.deleted_at')
             ->get();
+
+        return view('AllCar', compact('motorcycle'));
+        // $motorcycle = motorcycle::all();
+        // $motorcycle = DB::table('motorcycles')
+        //     ->join('motorcycle_brands', 'motorcycle_Manufacturer', '=', 'motorcycle_brands.id')
+        //     ->join('motorcycle_models', 'motorcycle_Models', '=', 'motorcycle_models.id')
+        //     ->select('motorcycles.*', 'motorcycle_brands.brands_name', 'motorcycle_models.models_name')
+        //     ->whereNull('deleted_at')
+        //     ->get();
         // $brand = motorcycle_brand::all();
         // $models = motorcycle_model::all();
-        return view('AllCar', compact('motorcycle'));
+        // return view('AllCar', compact('motorcycle'));
         // return view('AllCar',compact('motorcycle','brand','models'));
     }
     function addPage()
@@ -73,6 +82,18 @@ class AdminController extends Controller
     public function SoftDelete_brand($id)
     {
         motorcycle_brand::find($id)->delete();
+        return redirect()->back()->with('success', 'deleted successfully!');
+        // return redirect('/management-add-page')->with('success', 'deleted successfully!');
+    }
+    public function SoftDelete_model($id)
+    {
+        motorcycle_model::find($id)->delete();
+        return redirect()->back()->with('success', 'deleted successfully!');
+        // return redirect('/management-add-page')->with('success', 'deleted successfully!');
+    }
+    public function SoftDelete_color($id)
+    {
+        motorcycles_color::find($id)->delete();
         return redirect()->back()->with('success', 'deleted successfully!');
         // return redirect('/management-add-page')->with('success', 'deleted successfully!');
     }

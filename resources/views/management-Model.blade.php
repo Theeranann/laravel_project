@@ -59,7 +59,7 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Brands</th>
+                <!-- <th scope="col">Brands</th> -->
                 <th scope="col">Models</th>
                 <th scope="col">Action</th>
             </tr>
@@ -73,11 +73,11 @@
             @foreach($motorcycle_model as $model)
             <tr>
                 <th scope="row">{{ $model->id }}</th>
-                <td>{{ $model->brands_id }}</td>
+                <!-- <td>{{ $model->brands_id }}</td> -->
                 <td>{{ $model->models_name	 }}</td>
                 <td>
                     <a href="#" class="btn btn-success">แก้ไข</a>
-                    <a href="#" class="btn btn-danger">ลบ</a>
+                    <a href="/SoftDelete-model/{{ $model->id }}" class="btn btn-danger">ลบ</a>
                 </td>
 
             </tr>
