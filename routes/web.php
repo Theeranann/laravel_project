@@ -63,6 +63,8 @@ Route::middleware([
         //Sell
         Route::get('/motorcycle-sell-list', [SellController::class, 'sellcarDetail'])->name('motorcycle-sell-list');
         Route::get('/motorcycle-sell-page/{motorcycle_ID}', [SellController::class, 'index']);
+        Route::get('/reserve-sell-page/{id}', [SellController::class, 'reserve_sell']);
+
         //Insert Sell
         Route::post('/insert-sell', [AdminController::class, 'insert_sell'])->name('insert-sell');
 
@@ -92,6 +94,10 @@ Route::middleware([
         //MANAGEMENT-Color
         Route::post('/motorcycle-color-insert', [AdminController::class, 'insert_color'])->name('motorcycle-color-insert');
         Route::get('/SoftDelete-color/{id}', [AdminController::class, 'SoftDelete_color'])->name('SoftDelete-color');
+
+        //MANAGEMENT-permission
+        Route::get('/management-permission', [AdminController::class, 'permissionPage'])->name('management-permission');
+        Route::put('/permission-change', [AdminController::class, 'permission_change'])->name('permission-change');
 
         Route::get('/getBrand/{id}', [AdminController::class, 'getBrand'])->name('getBrand');
         Route::get('/getColor/{id}', [AdminController::class, 'getColor'])->name('getColor');

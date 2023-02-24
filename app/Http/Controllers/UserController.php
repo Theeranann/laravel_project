@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\motorcycle;
-
+use App\Models\Reserve;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -38,8 +39,10 @@ class UserController extends Controller
     }
     public function insert_payment(Request $request)
     {
-        $new_motorcycle = new motorcycle;
-        $new_motorcycle->save();
-        return view('user.motorcycle-payment', compact('detail'));
+        $new_reserve = new Reserve();
+        $new_reserve->Customer_ID = Auth::id();
+        $new_reserve->Motorcycle_ID = $request->id;
+        $new_reserve->save();
+        return redirect('/main-page');
     }
 }

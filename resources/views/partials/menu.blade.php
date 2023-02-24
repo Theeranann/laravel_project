@@ -82,6 +82,11 @@
                             </a>
                         </li>
 
+                        <li class="nav-item"><a class="nav-link" href="{{ route('management-permission') }}">
+                                <div class="px-3">จัดการสิทธิผู้ใช้งาน</div>
+                            </a>
+                        </li>
+
                         <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}

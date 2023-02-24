@@ -22,45 +22,27 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">นามผู้ขาย</th>
+                <th scope="col">นามผู้จอง</th>
                 <th scope="col">รถจักรยานยนต์</th>
-                <th scope="col">วันที่ขาย</th>
+                <th scope="col">วันที่จอง</th>
                 <th scope="col">ราคาของรถ</th>
+                <th scope="col">สถานะ</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-
+        @foreach($reserve as $row)
             <tr>
-                <td>John</td>
-                <td>Honda wave</td>
-                <td>08/04/2022</td>
-                <td>28,500 บาท</td>
-                <td><a type="button" class="btn btn-warning" href="#">แก้ไข</a>
-                    <a type="button" class="btn btn-danger" href="#">ลบ</a>
+                <td>{{ $row->name }} </td>
+                <td>{{ $row->brands_name }} {{ $row->models_name }} </td>
+                <td>{{ $row->created_at }} </td>
+                <td>{{ $row->motorcycle_Price }} บาท</td>
+                <td><span class="badge rounded-pill bg-warning text-dark">รอตรวจสอบการชำระค่าบริการ</span></td>
+                <td><a type="button" class="btn btn-primary" href="reserve-sell-page/{{$row->id}}">ขายรถ</a>
                 </td>
             </tr>
-
-            <tr>
-                <td>John</td>
-                <td>Honda wave</td>
-                <td>08/04/2022</td>
-                <td>28,500 บาท</td>
-                <td><a type="button" class="btn btn-warning" href="#">แก้ไข</a>
-                    <a type="button" class="btn btn-danger" href="#">ลบ</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td>John</td>
-                <td>Honda wave</td>
-                <td>08/04/2022</td>
-                <td>28,500 บาท</td>
-                <td><a type="button" class="btn btn-warning" href="#">แก้ไข</a>
-                    <a type="button" class="btn btn-danger" href="#">ลบ</a>
-                </td>
-            </tr>
-
+        @endforeach
+            
         </tbody>
     </table>
 </div>

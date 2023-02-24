@@ -10,6 +10,8 @@ use App\Models\motorcycle_model;
 use App\Models\motorcycles_color;
 use App\Models\order;
 use App\Models\parts;
+use App\Models\Reserve;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -64,7 +66,16 @@ class AdminController extends Controller
     }
     function reserveCarPage()
     {
-        return view('reserveCar');
+        // $reserve = Reserve::all();
+        $reserve = DB::table('reserves')
+        ->join('users', 'reserves.Customer_ID', '=', 'users.id')
+        ->join('motorcycles', 'reserves.Motorcycle_ID', '=', 'motorcycles.motorcycle_ID')
+        ->join('motorcycle_brands', 'motorcycles.motorcycle_Manufacturer', '=', 'motorcycle_brands.id')
+        ->join('motorcycle_models', 'motorcycles.motorcycle_Models', '=', 'motorcycle_models.id')
+        ->select('reserves.*', 'users.name', 'motorcycles.*', 'motorcycle_brands.brands_name', 'motorcycle_models.models_name')
+        ->whereNull('motorcycles.deleted_at')
+        ->get();
+        return view('reserveCar',compact('reserve'));
     }
 
     public function detailPage($motorcycle_ID)
@@ -129,6 +140,20 @@ class AdminController extends Controller
         $motorcycle_color = motorcycles_color::all();
         return view('management-Color',compact('motorcycle_brand','motorcycle_model','motorcycle_color'));
     }
+    public function permissionPage()
+    {
+        $user = User::all();
+        return view('management-permission',compact('user'));
+    }
+    public function permission_change(Request $request)
+    {
+        // $user = User::all();
+        // return view('test',compact('user'));
+        $user = User::find((int)$request->input('user_id') );
+        $user->is_admin = (int)$request->input('Role');
+        $user->save();
+        return redirect()->back()->with('success', 'successfully!');
+    }
 
 
     // public function select_brands()
@@ -183,16 +208,8 @@ class AdminController extends Controller
         $new_sell->Buys_Order_Status = '1';
         $new_sell->save();
 
-
-
         return redirect('/motorcycle-sell-list');
 
-        // $table->string("customers_firstName");
-        // $table->string("customers_lastName");
-        // $table->string("customers_Gender");
-        // $table->string("customers_BirthDate");
-        // $table->string("customers_phoneNumber");
-        // $table->string("customers_Address");
     }
 
     public function insert_parts(Request $request)

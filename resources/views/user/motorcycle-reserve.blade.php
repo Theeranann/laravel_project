@@ -27,11 +27,11 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <ui class="terms-ulst">
-                                    <ul class="text-muted"> - <span class="text-danger"><strong>กรุณาใส่เลข ID</strong></span> ตัวอย่างการดูเลขอยู่ด้านล่าง </ul>
-                                    <ul class="text-muted"> - <span class="text-danger"><strong>หากลูกค้ากรอกเลข ID มาผิด</strong></span> ทางเราจะไม่รับผิดชอบและไม่มีการคืนเงินใด ๆ ทั้งสิ้น </ul>
-                                    <ul class="text-muted"> - หากสถานะขึ้นว่า สำเร็จ กรุณารอ 5 - 60 นาที ยอดเงินจะเข้าเกม </ul>
-                                    <ul class="text-muted"> - <span class="text-danger"><strong>ไม่มีการยกเลิกรายการ</strong></span> หรือ ขอคืน Point หลังการทำรายการแล้ว </ul>
-                                    <ul class="text-muted"> - กรุณาโอนเงินให้ เศษ สตางค์ให้ถูกต้องตามระบบกำหนด </ul>
+                                    <ul class="text-muted"> - <span class="text-danger"><strong>Lorem ipsum dolor sit amet.</strong></span> Lorem, ipsum. </ul>
+                                    <ul class="text-muted"> - <span class="text-danger"><strong>Lorem ipsum dolor sit.</strong></span> Lorem ipsum dolor sit amet consectetur adipisicing. </ul>
+                                    <ul class="text-muted"> - หากสถานะขึ้นว่า สำเร็จ กรุณารอ 5 - 60 นาที สถานะถึงจะเปลี่ยน </ul>
+                                    <ul class="text-muted"> - <span class="text-danger"><strong>ไม่มีการยกเลิกรายการ</strong></span> หรือ ขอคืนเงิน หลังการทำรายการแล้ว </ul>
+                                    <ul class="text-muted"> - Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur earum exercitationem optio perferendis sit eaque. </ul>
                                     <ul class="text-muted"> - หากไม่ตรงระบบจะไม่ดำเนินการ และต้องนำหลักฐานการโอนเงินมาให้ทางทีมงานตรวจสอบ (มีระยะการดำเนินการ) </ul>
                                 </ui>
                             </div>
@@ -68,7 +68,7 @@
 
                         <div class="row terms-prodoct-info">
                             <div class="col-4"><b>ชื่อผู้จอง</b></div>
-                            <div class="col-8">Jamess</div>
+                            <div class="col-8">User</div>
                         </div>
 
                         <br>
@@ -80,11 +80,11 @@
                         <hr>
                         <div class="row">
                             <div class="col-8">ราคาสินค้า</div>
-                            <div class="col-4 text-right">475</div>
+                            <div class="col-4 text-right">200.00</div>
                             <div class="col-8">ส่วนลด</div>
                             <div class="col-4 text-right">0</div>
                             <div class="col-8">ยอดชำระเงินทั้งหมด</div>
-                            <div class="col-4 text-right" style="color: rgb(238, 77, 45);">475</div>
+                            <div class="col-4 text-right" style="color: rgb(238, 77, 45);">200.00</div>
                         </div>
                         <hr>
 
